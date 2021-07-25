@@ -1,16 +1,16 @@
 resource "aws_dynamodb_table" "table" {
   name           = var.name
   billing_mode   = "PROVISIONED"
-  read_capacity  = 20
-  write_capacity = 20
+  read_capacity  = 1
+  write_capacity = 1
   hash_key       = var.hash_key
 
   dynamic "attribute" {
-      for_each = var.attributes
-      content {
-          name = attribute.value.name
-          type = attribute.value.type
-      }
+    for_each = var.attributes
+    content {
+      name = attribute.value.name
+      type = attribute.value.type
+    }
   }
 
   ttl {
@@ -19,7 +19,7 @@ resource "aws_dynamodb_table" "table" {
   }
 
   tags = {
-    Name        = "dynamodb-table-1"
+    Name        = "${var.name}-table"
     Environment = "production"
   }
 }
