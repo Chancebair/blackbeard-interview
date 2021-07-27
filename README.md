@@ -11,6 +11,8 @@ Hello Jeffy!  Here you can read about the simple web app on ECR for the Pirate A
 # Infrastructure
 Under this folder you can find all the infra supporting the web app.  Normally the "terraform_modules" would be a SysEng managed repo separate from this repo, so that we can keep the infra code clean and versioned.  All that would be required for apps are the terraform modules repo and setting up the minimal terragrunt configs (as you can see from the "prod" directory).
 
+![Alt text](docs/diagram.png?raw=true "Infrastructure Diagram")
+
 ## Installation
 Ensure AWS CLI is installed and configured 
 ```
